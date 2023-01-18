@@ -6,15 +6,17 @@ class NewsItem extends Component {
     return (
       <div>
         <div className="card">
-          <img src={imageUrl} className="card-img-top"/>
+          <img src={!imageUrl?'https://i.quotev.com/b2gtjqawaaaa.jpg':imageUrl} className="card-img-top" alt="News Fox"/>
           <div className="card-body">
             <h4 className="card-title">{title}</h4>
             <p className="card-text">{description}</p>
             <p className="card-text"><small className="text-muted">By {!author?"Unknown":author} on {new Date(date).toGMTString()}</small></p>
-            <a href={newsUrl} target="_blank" className="btn btn-sm btn-primary">
+            <a href={newsUrl}  rel="noreferrer" target="_blank" className="btn btn-sm btn-primary">
               Read More
             </a>
-            <span className="position-absolute top-0 translate-middle badge rounded-pill bg-danger" style={{left: '90%', zIndex: '1'}}>{source.name}</span>
+            <div style={{display: 'flex', justifyContent: 'flex-end', position: 'absolute', right: '0', top: '0'}}>
+            <span className="badge rounded-pill bg-danger">{source.name}</span>
+            </div>
           </div>
         </div>
       </div>
